@@ -9,6 +9,11 @@ const { JSDOM, VirtualConsole } = require('jsdom');
 
 module.exports = class JSDOMEnvironment {
   constructor(config, options) {
+    
+    // Added by petrkrejcik
+    this.global.Uint8Array = Uint8Array;
+    this.global.ArrayBuffer = ArrayBuffer;
+    
     this.dom = new JSDOM('<!DOCTYPE html>', {
       pretendToBeVisual: true,
       runScripts: 'dangerously',
